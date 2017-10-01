@@ -359,10 +359,84 @@ $\left(\begin{array}{cccccccc|c}
 	\]
 	
 	\newpage
-	
-	
-	
-	
+	\begin{center}\begin{large}{№7}\end{large}\end{center}
+	\textbf{Выполним конъюнктивные разложения Шеннона логической функции F.}
+	\[
+	\begin{aligned}
+		\begin{pmatrix}
+			A&0&0&0&0&1&1&1&1\\
+			B&0&0&1&1&0&0&1&1\\
+			C&0&1&0&1&0&1&0&1\\
+			F&1&1&1&0&1&1&0&1\\
+		\end{pmatrix}
+		&=\left(A+
+		\begin{pmatrix}
+			B&0&0&1&1\\
+			C&0&1&0&1\\
+			F&1&1&1&0\\
+		\end{pmatrix}
+		\right)
+		\cdot \left(\overline{A}+
+		\begin{pmatrix}
+			B&0&0&1&1\\
+			C&0&1&0&1\\
+			F&1&1&0&1\\
+		\end{pmatrix}\right)
+		=(A + (B\mid C))\cdot (\overline{A} + (B\Rightarrow C) )
+		\\
+		\begin{pmatrix}
+		A&0&0&0&0&1&1&1&1\\
+		B&0&0&1&1&0&0&1&1\\
+		C&0&1&0&1&0&1&0&1\\
+		F&1&1&1&0&1&1&0&1\\
+		\end{pmatrix}
+		&=\left(B+
+		\begin{pmatrix}
+		A&0&0&1&1\\
+		C&0&1&0&1\\
+		F&1&1&1&1\\
+		\end{pmatrix}
+		\right)
+		\cdot \left(\overline{B}+
+		\begin{pmatrix}
+		A&0&0&1&1\\
+		C&0&1&0&1\\
+		F&1&0&0&1\\
+		\end{pmatrix}\right)
+		=B\cdot(\overline{B}+ (A\equiv C)) 
+		\\
+		\begin{pmatrix}
+		A&0&0&0&0&1&1&1&1\\
+		B&0&0&1&1&0&0&1&1\\
+		C&0&1&0&1&0&1&0&1\\
+		F&1&1&1&0&1&1&0&1\\
+		\end{pmatrix}
+		&=\left(C+
+		\begin{pmatrix}
+		A&0&0&1&1\\
+		B&0&1&0&1\\
+		F&1&1&1&0\\
+		\end{pmatrix}
+		\right)
+		\cdot \left(\overline{C}+
+		\begin{pmatrix}
+		A&0&0&1&1\\
+		B&0&1&0&1\\
+		F&1&0&1&1\\
+		\end{pmatrix}\right)
+		=(C+(A\mid B))\cdot (\overline{C}+(A\Leftarrow B))
+	\end{aligned}
+	\]
+	\begin{center}\begin{large}{№8}\end{large}\end{center}
+	\textbf{Совершенная конъюнктивная нормальная форма.}
+	\begin{equation}
+	F(A,B,C)= (A+\overline{B}+\overline{C})\cdot(\overline{A}+\overline{B}+C) 
+	\end{equation}
+	\begin{center}\begin{large}{№9}\end{large}\end{center}
+	\textbf{Минимальные конъюнктивные нормальные формы.}
+	\begin{equation}
+	F(A,B,C)= (A+\overline{B}+\overline{C})\cdot(\overline{A}+\overline{B}+C) 
+	\end{equation}
 	
 	
 	
