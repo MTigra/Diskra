@@ -1,0 +1,415 @@
+\documentclass[]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[a4paper, total={7.5in, 10in}]{geometry}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\begin{document}
+	\begin{figure}[t]
+		\centering
+		\fontseries{b}
+		\large
+		НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ\\
+		«ВЫСШАЯ ШКОЛА ЭКОНОМИКИ»\\
+		Дисциплина: «Дискретная математика»
+	\end{figure}
+	
+	\begin{figure}[h]
+	\vspace{3in}
+	\fontseries{b}
+	\centering
+	\Large
+	Домашнее задание 1\\
+	\Huge
+	\textbf{Исследование комбинационных схем}\\
+	Вариант 27 
+	\end{figure}
+	
+	\vspace{2in}
+	\Large
+	\raggedleft
+	Выполнил: kk,\\
+	студент гр. 02.\\
+	\vspace{12pt}
+	Преподаватель: Авдошин С.М.,\\
+	профессор департамента\\
+	программной инженерии\\
+	факультета компьютерных наук
+	
+	\begin{figure}[b]
+		\centering
+		Москва \the\year
+	\end{figure}
+	
+	\thispagestyle{empty}
+	
+	\newpage
+	
+	\Large
+	\begin{center}№1\end{center}
+	
+	\begin{equation*}
+	7X_7 \oplus 186X_6\oplus 213X_5\oplus 21X_4\oplus 238X_3 \oplus 142X_2\oplus 30X_1 \oplus 191X_0 = 183
+	\end{equation*}
+	
+	\raggedright
+	Переведем коэффициенты уравнения в двоичную систему счисления.\\
+		
+	$7_{10} = 00000111_2, 186_{10} = 10111010_2, 213_{10} = 11010101_2, 21_{10} = 00010101_2, 238_{10} = 11101110_2, 142_{10} = 10001110_2, 30_{10} = 00011110_2, 191_{10} = 10111111_2, 183_{10} = 10110111_2$.\\
+		
+	Составим расширенную матрицу коэффициентов соответствующей системы линейных уравнений в $GF(2)$ и решим систему. 
+			
+	\vspace{20pt}
+	
+	\small
+	\centering
+	\begin{tabular}{cccc}
+		$\left(\begin{array}{cccccccc|c}
+0&1&1&0&1&1&0&1&1\\
+0&0&1&0&1&0&0&0&0\\
+0&1&0&0&1&0&0&1&1\\
+0&1&1&1&0&0&1&1&1\\
+0&1&0&0&1&1&1&1&0\\
+1&0&1&1&1&1&1&1&1\\
+1&1&0&0&1&1&1&1&1\\
+1&0&1&1&0&0&0&1&1\\\end{array}\right)$
+&
+\begin{tabular}{c}
+$(6) \oplus= (5)$\\
+$(7) \oplus= (5)$\\
+\end{tabular}
+$\left(\begin{array}{cccccccc|c}
+0&1&1&0&1&1&0&1&1\\
+0&0&1&0&1&0&0&0&0\\
+0&1&0&0&1&0&0&1&1\\
+0&1&1&1&0&0&1&1&1\\
+0&1&0&0&1&1&1&1&0\\
+1&0&1&1&1&1&1&1&1\\
+0&1&1&1&0&0&0&0&0\\
+0&0&0&0&1&1&1&0&0\\\end{array}\right)$
+&
+\begin{tabular}{c}
+$(2) \oplus= (0)$\\
+$(3) \oplus= (0)$\\
+$(4) \oplus= (0)$\\
+$(6) \oplus= (0)$\\
+\end{tabular}
+\\\\
+$\left(\begin{array}{cccccccc|c}
+0&1&1&0&1&1&0&1&1\\
+0&0&1&0&1&0&0&0&0\\
+0&0&1&0&0&1&0&0&0\\
+0&0&0&1&1&1&1&0&0\\
+0&0&1&0&0&0&1&0&1\\
+1&0&1&1&1&1&1&1&1\\
+0&0&0&1&1&1&0&1&1\\
+0&0&0&0&1&1&1&0&0\\
+\end{array}\right)$
+&
+\begin{tabular}{c}
+$(0) \oplus= (1)$\\
+$(2) \oplus= (1)$\\
+$(4) \oplus= (1)$\\
+$(5) \oplus= (1)$\\
+\end{tabular}
+$\left(\begin{array}{cccccccc|c}
+0&1&0&0&0&1&0&1&1\\
+0&0&1&0&1&0&0&0&0\\
+0&0&0&0&1&1&0&0&0\\
+0&0&0&1&1&1&1&0&0\\
+0&0&0&0&1&0&1&0&1\\
+1&0&0&1&0&1&1&1&1\\
+0&0&0&1&1&1&0&1&1\\
+0&0&0&0&1&1&1&0&0\\\end{array}\right)$
+&
+\begin{tabular}{c}
+$(5) \oplus= (3)$\\
+$(6) \oplus= (3)$\\
+\end{tabular}
+\\\\
+$\left(\begin{array}{cccccccc|c}
+0&1&0&0&0&1&0&1&1\\
+0&0&1&0&1&0&0&0&0\\
+0&0&0&0&1&1&0&0&0\\
+0&0&0&1&1&1&1&0&0\\
+0&0&0&0&1&0&1&0&1\\
+1&0&0&0&1&0&0&1&1\\
+0&0&0&0&0&0&1&1&1\\
+0&0&0&0&1&1&1&0&0\\\end{array}\right)$
+&
+\begin{tabular}{c}
+$(1) \oplus= (2)$\\
+$(3) \oplus= (2)$\\
+$(4) \oplus= (2)$\\
+$(5) \oplus= (2)$\\
+$(7) \oplus= (2)$\\
+\end{tabular}
+$\left(\begin{array}{cccccccc|c}
+0&1&0&0&0&1&0&1&1\\
+0&0&1&0&0&1&0&0&0\\
+0&0&0&0&1&1&0&0&0\\
+0&0&0&1&0&0&1&0&0\\
+0&0&0&0&0&1&1&0&1\\
+1&0&0&0&0&1&0&1&1\\
+0&0&0&0&0&0&1&1&1\\
+0&0&0&0&0&0&1&0&0\\\end{array}\right)$
+&
+\begin{tabular}{c}
+$(0) \oplus= (4)$\\
+$(1) \oplus= (4)$\\
+$(2) \oplus= (4)$\\
+$(5) \oplus= (4)$\\
+\end{tabular}
+\\\\
+$\left(\begin{array}{cccccccc|c}
+0&1&0&0&0&0&1&1&0\\
+0&0&1&0&0&0&1&0&1\\
+0&0&0&0&1&0&1&0&1\\
+0&0&0&1&0&0&1&0&0\\
+0&0&0&0&0&1&1&0&1\\
+1&0&0&0&0&0&1&1&0\\
+0&0&0&0&0&0&1&1&1\\
+0&0&0&0&0&0&1&0&0\\\end{array}\right)$
+&
+\begin{tabular}{c}
+$(0) \oplus= (6)$\\
+$(1) \oplus= (6)$\\
+$(2) \oplus= (6)$\\
+$(3) \oplus= (6)$\\
+$(4) \oplus= (6)$\\
+$(5) \oplus= (6)$\\
+$(7) \oplus= (6)$\\
+\end{tabular}
+$\left(\begin{array}{cccccccc|c}
+0&1&0&0&0&0&0&0&1\\
+0&0&1&0&0&0&0&1&0\\
+0&0&0&0&1&0&0&1&0\\
+0&0&0&1&0&0&0&1&1\\
+0&0&0&0&0&1&0&1&0\\
+1&0&0&0&0&0&0&0&1\\
+0&0&0&0&0&0&1&1&1\\
+0&0&0&0&0&0&0&1&1\\\end{array}\right)$
+&
+\begin{tabular}{c}
+$(1) \oplus= (7)$\\
+$(2) \oplus= (7)$\\
+$(3) \oplus= (7)$\\
+$(4) \oplus= (7)$\\
+$(6) \oplus= (7)$\\
+\end{tabular}
+\\\\
+$\left(\begin{array}{cccccccc|c}
+0&1&0&0&0&0&0&0&1\\
+0&0&1&0&0&0&0&0&1\\
+0&0&0&0&1&0&0&0&1\\
+0&0&0&1&0&0&0&0&0\\
+0&0&0&0&0&1&0&0&1\\
+1&0&0&0&0&0&0&0&1\\
+0&0&0&0&0&0&1&0&0\\
+0&0&0&0&0&0&0&1&1\\\end{array}\right)$
+&
+\\\\
+
+	\end{tabular}
+	
+	\Large
+	В описаниях преобразований строки обозначены как (1), (2), …, (8),\\
+	а выражение (i)⊕=(j)  обозначает «заменить все числа в строке (i)\\
+	на их сумму по модулю 2 с соответствующими числами строки (j)».
+	
+	\newpage
+	
+	\raggedright
+	Получаем решение: X7 = 1, X6 = 1, X5 = 1, X4 = 0, X3 = 1, X2 = 1, X1 = 0, X0 = 1.\\
+	Составим таблицу истинности функции F.\\
+	\vspace{10pt}
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		A&0&0&0&0&1&1&1&1\\
+		\hline
+		B&0&0&1&1&0&0&1&1\\
+		\hline
+		C&0&1&0&1&0&1&0&1\\
+		\hline
+		F&1&1&1&0&1&1&0&1\\
+		\hline
+	\end{tabular}
+	\vspace{10pt}
+	
+	\raggedright
+	Десятичный номер функции F равен $2^7 + 2^6 + 2^5+ 2^3 + 2^2 + 2^0 = 237$.
+	
+	\vspace{20pt}
+	\centering
+	\normalsize
+	\begin{center}\begin{large}{№2}\end{large}\end{center}
+	\textbf{Представим таблицу листинности логической функции F в виде карты Карно.}
+	
+	\centering
+	\normalsize
+	
+	
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	&0&0&1&1&A \\
+	\cline{2-6}
+	\raisebox{1.5ex}[0cm][0cm]{F}
+	&0&1&1&0&B \\
+	\hline
+	0&1&1&0&1 \\
+	\cline{1-5}
+	1&1&0&1&1\\
+	\cline{1-5}
+	C\\
+	\cline{1-1}
+	
+\end{tabular}
+	
+\begin{center}\begin{large}{№3}\end{large}\end{center}
+\textbf{Выполним дизъюнктивны разложения Шеннона логической функции F.}
+	\[
+\begin{aligned}
+	\begin{pmatrix}
+	A&0&0&0&0&1&1&1&1\\
+	B&0&0&1&1&0&0&1&1\\
+	C&0&1&0&1&0&1&0&1\\
+	F&1&1&1&0&1&1&0&1\\
+	\end{pmatrix}
+	&=\overline{A}\cdot
+	\begin{pmatrix}
+	B&0&0&1&1\\
+	C&0&1&0&1\\
+	F&1&1&1&0\\
+	\end{pmatrix}
+	+A\cdot
+	\begin{pmatrix}
+	B&0&0&1&1\\
+	C&0&1&0&1\\
+	F&1&1&0&1\\
+	\end{pmatrix}
+	=\overline{A}\cdot (B\mid C)+A\cdot (B\Rightarrow C) 
+	\\
+	\begin{pmatrix}
+	A&0&0&0&0&1&1&1&1\\
+	B&0&0&1&1&0&0&1&1\\
+	C&0&1&0&1&0&1&0&1\\
+	F&1&1&1&0&1&1&0&1\\
+	\end{pmatrix}
+	&=\overline{B}\cdot
+	\begin{pmatrix}
+	A&0&0&1&1\\
+	C&0&1&0&1\\
+	F&1&1&1&1\\
+	\end{pmatrix}
+	+B\cdot
+	\begin{pmatrix}
+	A&0&0&1&1\\
+	C&0&1&0&1\\
+	F&1&0&0&1\\
+	\end{pmatrix}
+	=\overline{B}+B\cdot (A\equiv C) 
+	\\
+	\begin{pmatrix}
+	A&0&0&0&0&1&1&1&1\\
+	B&0&0&1&1&0&0&1&1\\
+	C&0&1&0&1&0&1&0&1\\
+	F&1&1&1&0&1&1&0&1\\
+	\end{pmatrix}
+	&=\overline{C}\cdot
+	\begin{pmatrix}
+	A&0&0&1&1\\
+	B&0&1&0&1\\
+	F&1&1&1&0\\
+	\end{pmatrix}
+	+C\cdot
+	\begin{pmatrix}
+	A&0&0&1&1\\
+	B&0&1&0&1\\
+	F&1&0&1&1\\
+	\end{pmatrix}
+	=\overline{C}\cdot (A\mid B)+C\cdot (A\Leftarrow B) 
+\end{aligned}
+	\]
+	\begin{center}\begin{large}{№4}\end{large}\end{center}
+	\textbf{Совершенная дизъюнктивная нормальная форма}
+	\begin{equation}
+	F(A,B,C)=\bar{A}\bar{B}\bar{C}+\bar{A}\bar{B}C+\bar{A}B\bar{C}+A\bar{B}\bar{C}+A\bar{B}C+ABC
+	\end{equation}
+	\begin{center}\begin{large}{№5}\end{large}\end{center}
+	\textbf{Минимальные дизъюнктивные формы}
+	\begin{equation}
+	F(A,B,C)=\overline{B}+AC+\overline{A}\overline{C}
+	\end{equation}
+	\begin{center}\begin{large}{№6}\end{large}\end{center}
+	
+	\textbf{Из дизъюнктивных разложений получаем новые представления}
+	\[
+	\begin{aligned}
+		F(A,B,C)&=\overline{A}\cdot (B\mid C)\oplus A\cdot (B\Rightarrow C) \\
+		F(A,B,C)&=\overline{B}\oplus B\cdot (A\equiv C)\\
+		F(A,B,C)&=\overline{C}\cdot (A\mid B)\oplus C\cdot (A\Leftarrow B) \\
+		F(A,B,C)&=\bar{A}\bar{B}\bar{C}\oplus \bar{A}\bar{B}C\oplus\bar{A}B\bar{C}\oplus A\bar{B}\bar{C}\oplus A\bar{B}C\oplus ABC
+	\end{aligned}
+	\]
+	
+	\newpage
+	
+	
+	
+	
+	
+	
+	
+	\normalsize
+	\raggedright
+	\begin{center}\begin{large}{№10}\end{large}\end{center}
+	$F(A,B,C) = A \oplus C \oplus AB \oplus BC$\\
+	\begin{center}\begin{large}{№11}\end{large}\end{center}
+	$(0,0,0): F(A,B,C) = A \oplus C \oplus AB \oplus BC$\\
+	$(0,0,1): F(A,B,C) = 1 \oplus A \oplus B \oplus ({C} \oplus 1) \oplus AB \oplus B({C} \oplus 1)$\\
+	$(0,1,0): F(A,B,C) = A({B} \oplus 1) \oplus ({B} \oplus 1)C$\\
+	$(0,1,1): F(A,B,C) = ({B} \oplus 1) \oplus A({B} \oplus 1) \oplus ({B} \oplus 1)({C} \oplus 1)$\\
+	$(1,0,0): F(A,B,C) = 1 \oplus ({A} \oplus 1) \oplus B \oplus C \oplus ({A} \oplus 1)B \oplus BC$\\
+	$(1,0,1): F(A,B,C) = ({A} \oplus 1) \oplus ({C} \oplus 1) \oplus ({A} \oplus 1)B \oplus B({C} \oplus 1)$\\
+	$(1,1,0): F(A,B,C) = ({B} \oplus 1) \oplus ({A} \oplus 1)({B} \oplus 1) \oplus ({B} \oplus 1)C$\\
+	$(1,1,1): F(A,B,C) = ({A} \oplus 1)({B} \oplus 1) \oplus ({B} \oplus 1)({C} \oplus 1)$\\
+
+	\begin{center}\begin{large}{№12}\end{large}\end{center}
+	$F(A,B,C) = 0 \equiv (A + B) \equiv (B + C)$\\
+	\begin{center}\begin{large}{№13}\end{large}\end{center}
+	$(0,0,0): F(A,B,C) = 0 \equiv ({A} \equiv 0) \equiv ({C} \equiv 0) \equiv (({A} \equiv 0) + ({B} \equiv 0)) \equiv (({B} \equiv 0) + ({C} \equiv 0))$\\
+	$(0,0,1): F(A,B,C) = ({A} \equiv 0) \equiv ({B} \equiv 0) \equiv C \equiv (({A} \equiv 0) + ({B} \equiv 0)) \equiv (({B} \equiv 0) + C)$\\
+	$(0,1,0): F(A,B,C) = 0 \equiv (({A} \equiv 0) + B) \equiv (B + ({C} \equiv 0))$\\
+	$(0,1,1): F(A,B,C) = 0 \equiv B \equiv (({A} \equiv 0) + B) \equiv (B + C)$\\
+	$(1,0,0): F(A,B,C) = A \equiv ({B} \equiv 0) \equiv ({C} \equiv 0) \equiv (A + ({B} \equiv 0)) \equiv (({B} \equiv 0) + ({C} \equiv 0))$\\
+	$(1,0,1): F(A,B,C) = 0 \equiv A \equiv C \equiv (A + ({B} \equiv 0)) \equiv (({B} \equiv 0) + C)$\\
+	$(1,1,0): F(A,B,C) = 0 \equiv B \equiv (A + B) \equiv (B + ({C} \equiv 0))$\\
+	$(1,1,1): F(A,B,C) = 0 \equiv (A + B) \equiv (B + C)$\\
+
+	\begin{center}\begin{large}{№14}\end{large}\end{center}
+	\begin{itemize}
+		\item $F \in T_0, $ т.к. $ F(0,0,0) = 0$
+		\item $F \notin T_1, $ т.к. $ F(1,1,1) = 0$
+		\item $F \notin T_{*} $ т.к. $ F(0,0,0) = 0, F(1,1,1) = 0$
+		\item $F \notin T_{\leq} $ т.к. $ F(1,0,0) = 1 > F(1,0,1) = 0$
+		\item $F \notin T_{L} $ т.к. $ F(A,B,C) = A \oplus C \oplus AB \oplus BC$
+	\end{itemize}
+	\begin{center}\begin{large}{№15}\end{large}\end{center}
+	\begin{itemize}
+		\item $0 = F(A, A, A)$
+\item $(A \ast B) = F(A, F(A, A, A), F(A, B, B))$
+\item $(A \nRightarrow B) = F(A, B, B)$
+\item $A = F(A, F(A, A, A), F(A, A, A))$
+\item $(A \nLeftarrow B) = F(A, A, B)$
+\item $B = F(A, F(A, B, B), F(A, A, B))$
+\item $(A \oplus B) = F(A, F(A, A, A), B)$
+\item $(A + B) = F(A, F(A, A, A), F(A, A, B))$
+	\end{itemize}
+	
+\end{document}
