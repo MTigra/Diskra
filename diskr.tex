@@ -456,46 +456,10 @@ $\left(\begin{array}{cccccccc|c}
 	
 	
 	\begin{center}\begin{large}{№11}\end{large}\end{center}
-	$(0,0,0): F(A,B,C) = A \oplus C \oplus AB \oplus BC$\\
-	$(0,0,1): F(A,B,C) = 1 \oplus A \oplus B \oplus ({C} \oplus 1) \oplus AB \oplus B({C} \oplus 1)$\\
-	$(0,1,0): F(A,B,C) = A({B} \oplus 1) \oplus ({B} \oplus 1)C$\\
-	$(0,1,1): F(A,B,C) = ({B} \oplus 1) \oplus A({B} \oplus 1) \oplus ({B} \oplus 1)({C} \oplus 1)$\\
-	$(1,0,0): F(A,B,C) = 1 \oplus ({A} \oplus 1) \oplus B \oplus C \oplus ({A} \oplus 1)B \oplus BC$\\
-	$(1,0,1): F(A,B,C) = ({A} \oplus 1) \oplus ({C} \oplus 1) \oplus ({A} \oplus 1)B \oplus B({C} \oplus 1)$\\
-	$(1,1,0): F(A,B,C) = ({B} \oplus 1) \oplus ({A} \oplus 1)({B} \oplus 1) \oplus ({B} \oplus 1)C$\\
-	$(1,1,1): F(A,B,C) = ({A} \oplus 1)({B} \oplus 1) \oplus ({B} \oplus 1)({C} \oplus 1)$\\
+	\textbf{Вычислим производные логической функции F.}
+	
 
-	\begin{center}\begin{large}{№12}\end{large}\end{center}
-	$F(A,B,C) = 0 \equiv (A + B) \equiv (B + C)$\\
-	\begin{center}\begin{large}{№13}\end{large}\end{center}
-	$(0,0,0): F(A,B,C) = 0 \equiv ({A} \equiv 0) \equiv ({C} \equiv 0) \equiv (({A} \equiv 0) + ({B} \equiv 0)) \equiv (({B} \equiv 0) + ({C} \equiv 0))$\\
-	$(0,0,1): F(A,B,C) = ({A} \equiv 0) \equiv ({B} \equiv 0) \equiv C \equiv (({A} \equiv 0) + ({B} \equiv 0)) \equiv (({B} \equiv 0) + C)$\\
-	$(0,1,0): F(A,B,C) = 0 \equiv (({A} \equiv 0) + B) \equiv (B + ({C} \equiv 0))$\\
-	$(0,1,1): F(A,B,C) = 0 \equiv B \equiv (({A} \equiv 0) + B) \equiv (B + C)$\\
-	$(1,0,0): F(A,B,C) = A \equiv ({B} \equiv 0) \equiv ({C} \equiv 0) \equiv (A + ({B} \equiv 0)) \equiv (({B} \equiv 0) + ({C} \equiv 0))$\\
-	$(1,0,1): F(A,B,C) = 0 \equiv A \equiv C \equiv (A + ({B} \equiv 0)) \equiv (({B} \equiv 0) + C)$\\
-	$(1,1,0): F(A,B,C) = 0 \equiv B \equiv (A + B) \equiv (B + ({C} \equiv 0))$\\
-	$(1,1,1): F(A,B,C) = 0 \equiv (A + B) \equiv (B + C)$\\
-
-	\begin{center}\begin{large}{№14}\end{large}\end{center}
-	\begin{itemize}
-		\item $F \in T_0, $ т.к. $ F(0,0,0) = 0$
-		\item $F \notin T_1, $ т.к. $ F(1,1,1) = 0$
-		\item $F \notin T_{*} $ т.к. $ F(0,0,0) = 0, F(1,1,1) = 0$
-		\item $F \notin T_{\leq} $ т.к. $ F(1,0,0) = 1 > F(1,0,1) = 0$
-		\item $F \notin T_{L} $ т.к. $ F(A,B,C) = A \oplus C \oplus AB \oplus BC$
-	\end{itemize}
-	\begin{center}\begin{large}{№15}\end{large}\end{center}
-	\begin{itemize}
-		\item $0 = F(A, A, A)$
-\item $(A \ast B) = F(A, F(A, A, A), F(A, B, B))$
-\item $(A \nRightarrow B) = F(A, B, B)$
-\item $A = F(A, F(A, A, A), F(A, A, A))$
-\item $(A \nLeftarrow B) = F(A, A, B)$
-\item $B = F(A, F(A, B, B), F(A, A, B))$
-\item $(A \oplus B) = F(A, F(A, A, A), B)$
-\item $(A + B) = F(A, F(A, A, A), F(A, A, B))$
-	\end{itemize}
+	
 	
 \end{document}
 \grid
