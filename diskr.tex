@@ -457,8 +457,71 @@ $\left(\begin{array}{cccccccc|c}
 	
 	\begin{center}\begin{large}{№11}\end{large}\end{center}
 	\textbf{Вычислим производные логической функции F.}
+	\[
+	\begin{aligned}
+		F_A'
+		\begin{pmatrix}
+			A&0&0&0&0&1&1&1&1\\
+			B&0&0&1&1&0&0&1&1\\
+			C&0&1&0&1&0&1&0&1\\
+			F&1&1&1&0&1&1&0&1\\
+		\end{pmatrix}
+		&=\overline{A}\cdot
+		\begin{pmatrix}
+			B&0&0&1&1\\
+			C&0&1&0&1\\
+			F&1&1&1&0\\
+		\end{pmatrix}
+		+A\cdot
+		\begin{pmatrix}
+			B&0&0&1&1\\
+			C&0&1&0&1\\
+			F&1&1&0&1\\
+		\end{pmatrix}
+		=\overline{A}\cdot (B\mid C)+A\cdot (B\Rightarrow C) 
+		\\
+		\begin{pmatrix}
+			A&0&0&0&0&1&1&1&1\\
+			B&0&0&1&1&0&0&1&1\\
+			C&0&1&0&1&0&1&0&1\\
+			F&1&1&1&0&1&1&0&1\\
+		\end{pmatrix}
+		&=\overline{B}\cdot
+		\begin{pmatrix}
+			A&0&0&1&1\\
+			C&0&1&0&1\\
+			F&1&1&1&1\\
+		\end{pmatrix}
+		+B\cdot
+		\begin{pmatrix}
+			A&0&0&1&1\\
+			C&0&1&0&1\\
+			F&1&0&0&1\\
+		\end{pmatrix}
+		=\overline{B}+B\cdot (A\equiv C) 
+		\\
+		\begin{pmatrix}
+			A&0&0&0&0&1&1&1&1\\
+			B&0&0&1&1&0&0&1&1\\
+			C&0&1&0&1&0&1&0&1\\
+			F&1&1&1&0&1&1&0&1\\
+		\end{pmatrix}
+		&=\overline{C}\cdot
+		\begin{pmatrix}
+			A&0&0&1&1\\
+			B&0&1&0&1\\
+			F&1&1&1&0\\
+		\end{pmatrix}
+		+C\cdot
+		\begin{pmatrix}
+			A&0&0&1&1\\
+			B&0&1&0&1\\
+			F&1&0&1&1\\
+		\end{pmatrix}
+		=\overline{C}\cdot (A\mid B)+C\cdot (A\Leftarrow B) 
+	\end{aligned}
+	\]
 	
-
 	
 	
 \end{document}
