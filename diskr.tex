@@ -485,26 +485,33 @@ $\left(\begin{array}{cccccccc|c}
 		F&0&0&1&1\\
 		\end{pmatrix} 
 		\\
+		F^{'}_B(A,B,C)=
 		\begin{pmatrix}
 			A&0&0&0&0&1&1&1&1\\
 			B&0&0&1&1&0&0&1&1\\
 			C&0&1&0&1&0&1&0&1\\
 			F&1&1&1&0&1&1&0&1\\
 		\end{pmatrix}
-		&=\overline{B}\cdot
+		&=
 		\begin{pmatrix}
 			A&0&0&1&1\\
 			C&0&1&0&1\\
 			F&1&1&1&1\\
 		\end{pmatrix}
-		+B\cdot
+		\oplus
 		\begin{pmatrix}
 			A&0&0&1&1\\
 			C&0&1&0&1\\
 			F&1&0&0&1\\
 		\end{pmatrix}
-		=\overline{B}+B\cdot (A\equiv C) 
+		=
+		\begin{pmatrix}
+		A&0&0&1&1\\
+		C&0&1&0&1\\
+		F&1&0&0&1\\
+		\end{pmatrix}
 		\\
+		F^{'}_C(A,B,C)=
 		\begin{pmatrix}
 			A&0&0&0&0&1&1&1&1\\
 			B&0&0&1&1&0&0&1&1\\
