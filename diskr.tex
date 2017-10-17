@@ -4,6 +4,9 @@
 \usepackage[russian]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{basises/}}
+\DeclareGraphicsExtensions{.png,.jpg}
 \usepackage[a4paper, total={7.5in, 10in}]{geometry}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -344,7 +347,7 @@ $\left(\begin{array}{cccccccc|c}
 	\begin{center}\begin{large}{№5}\end{large}\end{center}
 	\textbf{Минимальные дизъюнктивные формы}
 	\begin{equation}
-	F(A,B,C)=\overline{B}+AC+\overline{A}\overline{C}
+	F(A,B,C)=\overline{B}+AC+\overline{A}\hspace{1pt}\overline{C}
 	\end{equation}
 	\begin{center}\begin{large}{№6}\end{large}\end{center}
 	
@@ -638,5 +641,163 @@ $F'''_{ABC}$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
 	\\
 	(0,0,0):F(A,B,C)&=\overline{A}\equiv\overline{B}\equiv\overline{C}\equiv(\overline{A}+\overline{C})\equiv(\overline{A}+\overline{B}+\overline{C})\\
 	\end{align*}
+	\begin{center}\begin{large}{№20}\end{large}\end{center}
+	\textbf{Выразим функцию F с помощью минимального количества операций.}
+	
+	Из минимальной дизъюнктивной нормальной формы полученной в №9, выразим функцию F  с помощью двух операций.
+	\[
+	F(A,B,C)=\overline{B} + \overline{A}\hspace{1pt}\overline{C}+AC=\overline{B} + (A\equiv C)=B\Rightarrow(A\equiv C)
+	\]
+	Используя законы двойного отрицания и де Моргана, получаем:
+	\[
+	F(A,B,C)=\overline{B} + \overline{A}\hspace{1pt}\overline{C}+AC=\overline{\overline{\overline{B}+(A\equiv C)}}=\overline{B\cdot(A\oplus C)}=B\mid(A\oplus C)
+	\]
+	Для реализации в пограмме Winlogica комбинационной схемы используем первое полученно аналитическое представление функции F.
+	\begin{figure}[h]
+		\centering
+		\includegraphics{18100}
+	\end{figure}
+	\newpage
+	\begin{center}\begin{large}{№21}\end{large}\end{center}
+	\textbf{Получим аналитические представления функции F в каждом из семнадцати базисов, соответствующие минимальному количеству блоков комбинационной схемы.}
+
+	21.1
+	
+	21.2 В базисе $\{\mid\}$ отрицание можно выразить одним блоком, объединив два входа в один.
+	Будем преобразовывать минимальную дизъюнктивную форму, полученную в №5.
+	\begin{multline*}
+	F(A,B,C)=\overline{B} + \overline{A}\hspace{1pt}\overline{C}+AC=\overline{CA+\overline{C}\hspace{1pt}\overline{A}}\mid B=\overline{(CA+\overline{C})\cdot(CA+\overline{A})}\mid B=\\
+	=((\overline{\overline{CA+\overline{C}}})\mid(\overline{\overline{CA+\overline{A}}}))\mid B=
+	((\overline{\overline{CA}\cdot C})\mid (\overline{\overline{CA}\cdot A)})\mid B=
+	((((C\mid A) \mid C) \mid ((C\mid A)\mid A))\mid B)
+	\end{multline*}
+	\begin{figure}[h]
+		\centering
+		\includegraphics{18102}
+	\end{figure}
+
+	\newpage
+	
+	21.3 Найдем аналитическое представление функции F в базисе $\{0,\Rightarrow\}$.
+	Будем преобразовывать минимальную дизъюнктивную форму, полученную в №5. 
+	\begin{multline*}
+	F(A,B,C)=\overline{B} +AC+ \overline{A}\hspace{1pt}\overline{C}=\overline{B} +(A\equiv C)=B\Rightarrow(\overline{\overline{(\overline{A}+C)\cdot(A+\overline{C})}}+0)=B\Rightarrow((\overline{(\overline{A}+C)\cdot(A+\overline{C})})\Rightarrow 0)=\\
+	=B\Rightarrow(((\overline{\overline{A}+C})+(\overline{A+\overline{C}}))\Rightarrow 0)=B\Rightarrow (((A\Rightarrow C)\Rightarrow((C\Rightarrow A)\Rightarrow 0))\Rightarrow 0)
+	\end{multline*}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics{18103}
+	\end{figure}
+
+	\newpage
+	21.4
+	
+	\newpage
+	21.5 Найдем аналитическое представление функции F в базисе $\{\Rightarrow,\nRightarrow\}$.
+	
+	Будем преобразовывать минимальную дизъюнктивную форму, полученную в №5.
+	\[
+		F(A,B,C)=\overline{B} +AC+ \overline{A}\hspace{1pt}\overline{C}=B\Rightarrow((\overline{A}+C)\cdot(\overline{C\cdot \overline{A}}))=B\Rightarrow((A\Rightarrow C)\nRightarrow(C\nRightarrow A))
+	\] 
+	\begin{figure}[h!]
+	\centering
+	\includegraphics{18105}
+	\end{figure}
+
+	21.6 Найдем аналитическое представление функции F в базисе $\{\oplus,\Rightarrow\}$.
+	
+	Будем преобразовывать минимальную дизъюнктивную форму, полученную в №5.
+	\[
+	F(A,B,C)=\overline{B} +AC+ \overline{A}\hspace{1pt}\overline{C}=B\Rightarrow(A\equiv C)
+	=B\Rightarrow(\overline{A\oplus C})=(B\Rightarrow(\overline{A\oplus C}))\oplus B
+	\] 
+	\begin{figure}[h!]
+		\centering
+		\includegraphics{18106}
+	\end{figure}
+
+	\newpage
+	21.7 Найдем аналитическое представление функции F в базисе $\{\equiv,\nRightarrow\}$.
+	
+	Будем преобразовывать минимальную дизъюнктивную форму, полученную в №5.
+	\newpage
+	
+	21.8 Найдем аналитическое представление функции F в базисе $\{\neg,\Rightarrow\}$.
+	Будем преобразовывать минимальную дизъюнктивную форму, полученную в №5.
+	\[
+		F(A,B,C)=\overline{B} + AC + \overline{A}\hspace{1pt}\overline{C}=
+		\overline{B} + \overline{\overline{\overline{A}\hspace{1pt}\overline{C}}}+ AC=
+		\overline{B}+(\overline{\overline{C}\hspace{1pt}\overline{A}}\Rightarrow CA)=
+		B\Rightarrow((C+A)\Rightarrow \overline{\overline{CA}})=B\Rightarrow((\overline{C}\Rightarrow A)\Rightarrow (\overline{C\Rightarrow\overline{A}}))
+	\]
+	\begin{figure}[h!]
+		\centering
+		\includegraphics{18108}
+	\end{figure}
+	\newpage
+	\begin{center}\begin{large}{№22-23}\end{large}\end{center}
+	\textbf{Условия переключения сигнала на выходе схемы, реализующей функцию F, при переключении сигналов на каждой паре ее входов, в табличном и аналитическом виде.}
+	\[
+	\begin{aligned}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+	\hline
+	A              & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\ \hline
+	B              & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ \hline
+	C              & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ \hline
+	F              & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 \\ \hline
+	$F'_{(A,B)}$   & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 0 \\ \hline
+	$F'_{(A,C)}$   & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+	$F'_{(B,C)}$   & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 0 \\ \hline
+	\end{tabular}
+	\begin{aligned}
+	\hspace{2cm}
+	F'_{A,B}&=A\oplus(B\equiv C)\\
+	F'_{A,C}&=0\\
+	F'_{B,C}&=A\oplus(B\equiv C)\\
+	\end{aligned}
+	\end{aligned}
+	\]
+	\begin{center}\begin{large}{№24-25}\end{large}\end{center}
+	\textbf{Условия переключения сигнала на выходе схемы, реализующей функцию F, при переключении сигналов на всех ее входах, в табличном и аналитическом виде.}
+	\[
+	\begin{aligned}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+	\hline
+	A              & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\ \hline
+	B              & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ \hline
+	C              & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ \hline
+	F              & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 \\ \hline
+	$F'_{(A,B,C)}$ & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 \\ \hline
+	\end{tabular}
+	\begin{aligned}
+	\hspace{2cm}
+	F'_{A,B,C}&=A\oplus C\\
+	\end{aligned}
+	\end{aligned}
+	\]
+	\begin{center}\begin{large}{№26}\end{large}\end{center}
+	\textbf{Условия переключения сигнала на выходе схемы, реализующей функцию F, при переключении сигналов на всех ее входах, в табличном и аналитическом виде.}
+	\[
+	\begin{aligned}
+	F&\notin T_0,\text{ т.к. } F(0,0,0)=1\\
+	F&\in T_1,\text{ т.к. } F(1,1,1)=1\\
+	F&\notin T_*\text{ т.к. } F(0,0,0)=F(1,1,1)=1\\
+	F&\notin T_{\le} \text{ т.к. } F(1,0,0)=1>F(1,1,0)=0\\
+	F&\notin T_{L} \text{ т.к.} F(A,B,C)=1\oplus AB\oplus BC \text{ содержит нелинейные члены}
+	\end{aligned}
+	\]
+	\begin{center}\begin{large}{№27}\end{large}\end{center}
+	\textbf{Выразим через функцию F функции двух переменных.}
+	Поскольку $F\in F_1$ то из F c помощью операции суперпозиции нельзя получить никакие функции двух переменных $G\notin T_1$ то есть нельзя получить функции для которых $G(0,0)=1$.
+	\[
+	\begin{aligned}
+	A\cdot B &= F(A,F(A,A,A),F(A,A,B))\\
+	A+B&=F(A,F(A,B,B),F(A,B,B))\\
+	A\equiv B &=F(A,F(A,A,A),B)\\
+	A\Leftarrow B &= F(A,B,B)\\
+	A\Rightarrow B&=F(A,A,B)\\
+	1&=F(A,A,A)
+	\end{aligned}
+	\]
 \end{document}
-\grid
